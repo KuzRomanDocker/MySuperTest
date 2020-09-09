@@ -45,7 +45,7 @@ jobs:
         run : |
           echo "Var1 = ${{ env.VAR1 }}"
           echo "Var2 = ${{ env.VAR2 }}"
-          echo "Var3 = $LOCAL_VAR"|
+          echo "Var3 = ${{ LOCAL_VAR }}"|
         env:
           LOCAL_VAR: "This is Supper local Enviromment variable"
         
