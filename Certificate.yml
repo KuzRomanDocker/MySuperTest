@@ -1,0 +1,21 @@
+---
+  - name: Issue a cert for the CSR
+    hosts: PKI
+
+    tasks:
+    - name: Copy req
+      win_copy:
+       src:  /home/termit/Documents/Ansible/{{ cert }}.req
+       dest: C:\1\
+
+    - name: Create Cert
+      win_command: cmd.exe /c certreq -submit -attrib "CertificateTemplate:Linux" -config EnSubordinateCA.test.local\TestIssuingCertificationAuthority "C:\1\{{ cert }}.req" "C:\1\{{ cert }}.cer"
+
+    - name: Copy cer
+      fetch:
+        src:  C:\1\{{ cert }}.cer
+        dest: /home/termit/Documents/Ansible/
+        flat: yes
+
+    - name: Remove
+      win_command: cmd /c del /Q C:\1\*
