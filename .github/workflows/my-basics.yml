@@ -1,0 +1,27 @@
+#---------------------------
+# GitHub Actrion Test1
+#
+#---------------------------
+name: My0GithubActions-Basics
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  my_testing:
+    runs-on: ubuntu-latest
+     
+    steps:
+      - name: Print Hello Message
+        run: "echo Hello World from Testing"
+        
+  my_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello Message
+        run: "echo Hello World from job"
+    
+      - 
