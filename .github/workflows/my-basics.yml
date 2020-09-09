@@ -28,7 +28,19 @@ jobs:
             echo "Application name:${{ env.APPLICATION_Name }}"
       - name: List current folder
         run : ls -la
+      
+      - name: Git clone my repo
+        uses: actions/chekout@v1
+        
+      - name: List current folder
+        run : ls -la
+      
+      - name: Lets test some packages of the are here 1
+        run : aws --version
   
+      - name: Lets test some packages of the are here 2
+        run : zip
+      
   my_deploy:
     runs-on: ubuntu-latest
     needs: [my_testing]
